@@ -52,8 +52,11 @@ const app = express();
 app.use(bodyParser.json());
 
 // CORS configuration
+
 app.use(cors({
-  origin: 'http://localhost:5173/resumelink'
+  origin: 'https://tishagaur.vercel.app/',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Nodemailer configuration
