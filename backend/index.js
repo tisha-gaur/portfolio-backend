@@ -52,12 +52,19 @@ const app = express();
 app.use(bodyParser.json());
 
 // CORS configuration
-app.use(cors())
+// app.use(cors())
 // app.use(cors({
 //   origin: 'https://tishagaur.vercel.app/',
 //   methods: ['GET', 'POST', 'OPTIONS'],
 //   allowedHeaders: ['Content-Type', 'Authorization']
 // }));
+app.use(cors({
+  origin: 'https://tishagaur.vercel.app',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+app.options('/api/contact', cors());
 
 // Nodemailer configuration
 const transporter = nodemailer.createTransport({
